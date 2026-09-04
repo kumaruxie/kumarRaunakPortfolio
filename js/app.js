@@ -3,8 +3,19 @@
  * Features: Spotlight Carousel, Work Experience Table, Gallery Filter, Side Drawer ("Bagal me khul jaye"), Fullscreen Lightbox
  */
 
+function escapeHtml(str) {
+  if (str === null || str === undefined) return "";
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
 document.addEventListener("DOMContentLoaded", () => {
-    initMobileNav();
+  initStickyHeader();
+  initMobileNav();
   // Initialize Side Drawer & Lightbox
   const drawer = new SideDrawer();
 
@@ -190,32 +201,49 @@ function renderProjectsGallery(projects, drawerInstance) {
 
   grid.innerHTML = "";
 
-  projects.forEach((p, idx) => {
+  projects.forEach((p) => {
     const card = document.createElement("article");
     card.className = "gallery-card";
     card.dataset.category = p.category;
 
+    // Extract quick metric headline from result if available
+    const metricMatch = (p.result || "").match(/(\+\d+%|\d+%\s*(?:increase|drop|reduction|completion)?|\b\d+x\b|<[0-9.]+\s*s|\b\d+\s*sec\b|\b\d+k\+\b)/i);
+    const metricBadge = metricMatch ? `<span class="gallery-card-metric">${escapeHtml(metricMatch[0])}</span>` : "";
+
+    const problemText = p.problem || p.problemSolved || "";
+    const resultText = p.result || "";
+    const problemPreview = problemText.length > 90 ? problemText.slice(0, 90) + "..." : problemText;
+    const resultPreview = resultText.length > 105 ? resultText.slice(0, 105) + "..." : resultText;
+
+    const tagsList = p.tags || p.techStack || [];
+
     card.innerHTML = `
       <div class="gallery-card-media">
-        <img src="${p.image}" alt="${p.title} Preview" loading="lazy" />
-        <span class="gallery-card-badge">${p.categoryLabel}</span>
+        <img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.title)} Preview" loading="lazy" />
+        <span class="gallery-card-badge">${escapeHtml(p.categoryLabel)}</span>
+        ${metricBadge}
       </div>
 
       <div class="gallery-card-body">
-        <h3 class="gallery-card-title">${p.title}</h3>
-        <p class="gallery-card-sub">${p.subtitle}</p>
+        <h3 class="gallery-card-title">${escapeHtml(p.title)}</h3>
+        <p class="gallery-card-sub">${escapeHtml(p.subtitle)}</p>
+
+        <div class="gallery-card-proof-preview">
+          <div class="proof-row"><span class="proof-tag">Bottleneck:</span> ${escapeHtml(problemPreview)}</div>
+          <div class="proof-row"><span class="proof-tag proof-tag-result">Result:</span> <strong>${escapeHtml(resultPreview)}</strong></div>
+        </div>
 
         <div class="gallery-card-tags">
-          ${p.techStack.slice(0, 4).map(t => `<span class="gallery-tag-chip">${t}</span>`).join("")}
-          ${p.techStack.length > 4 ? `<span class="gallery-tag-chip">+${p.techStack.length - 4}</span>` : ""}
+          ${tagsList.slice(0, 4).map(t => `<span class="gallery-tag-chip">${escapeHtml(t)}</span>`).join("")}
+          ${tagsList.length > 4 ? `<span class="gallery-tag-chip">+${tagsList.length - 4}</span>` : ""}
         </div>
 
         <div class="gallery-card-actions">
-          <button class="btn-inspect-drawer" data-inspect-project="${p.id}">
+          <button class="btn-inspect-drawer" data-inspect-project="${escapeHtml(p.id)}">
             <span>Case Study</span>
             <span>→</span>
           </button>
-          <a href="${p.liveUrl}" target="_blank" rel="noopener noreferrer" class="btn-launch-pill" aria-label="Visit ${p.title} Live">
+          <a href="${escapeHtml(p.liveUrl)}" target="_blank" rel="noopener noreferrer" class="btn-launch-pill" aria-label="Visit ${escapeHtml(p.title)} Live">
             <span>Live Site</span>
             <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
               <line x1="7" y1="17" x2="17" y2="7"></line>
@@ -287,8 +315,15 @@ class SideDrawer {
     this.titleEl = this.drawer?.querySelector("#drawer-title");
     this.subtitleEl = this.drawer?.querySelector("#drawer-subtitle");
     this.imgEl = this.drawer?.querySelector("#drawer-img");
+    this.resultEl = this.drawer?.querySelector("#drawer-result");
     this.problemEl = this.drawer?.querySelector("#drawer-problem");
-    this.solutionEl = this.drawer?.querySelector("#drawer-solution");
+    this.builtEl = this.drawer?.querySelector("#drawer-built");
+    this.roleBadgeEl = this.drawer?.querySelector("#drawer-role-badge");
+    this.roleScopeEl = this.drawer?.querySelector("#drawer-role-scope");
+    this.archAuthEl = this.drawer?.querySelector("#drawer-arch-auth");
+    this.archDbEl = this.drawer?.querySelector("#drawer-arch-db");
+    this.archApiEl = this.drawer?.querySelector("#drawer-arch-api");
+    this.archDeployEl = this.drawer?.querySelector("#drawer-arch-deploy");
     this.highlightsEl = this.drawer?.querySelector("#drawer-highlights");
     this.techEl = this.drawer?.querySelector("#drawer-tech-tags");
     this.launchBtn = this.drawer?.querySelector("#drawer-launch-link");
@@ -381,33 +416,50 @@ class SideDrawer {
   render(p) {
     if (!p) return;
 
-    if (this.titleEl) this.titleEl.textContent = p.title;
-    if (this.subtitleEl) this.subtitleEl.textContent = p.subtitle;
+    if (this.titleEl) this.titleEl.textContent = p.title || "";
+    if (this.subtitleEl) this.subtitleEl.textContent = p.subtitle || "";
     if (this.imgEl) {
-      this.imgEl.src = p.image;
-      this.imgEl.alt = `${p.title} Real Screenshot`;
+      this.imgEl.src = p.image || "";
+      this.imgEl.alt = `${p.title || "Project"} Real Screenshot`;
     }
-    if (this.problemEl) this.problemEl.textContent = p.problemSolved;
-    if (this.solutionEl) this.solutionEl.textContent = p.solutionEngineered;
 
+    if (this.resultEl) this.resultEl.textContent = p.result || "";
+    if (this.problemEl) this.problemEl.textContent = p.problem || p.problemSolved || "";
+    if (this.builtEl) this.builtEl.textContent = p.whatWasBuilt || p.solutionEngineered || "";
+
+    if (this.roleBadgeEl) {
+      this.roleBadgeEl.textContent = p.myRole ? `Scope: ${p.myRole}` : "Scope: Full-Stack Architect";
+    }
+    if (this.roleScopeEl) {
+      this.roleScopeEl.textContent = "Production execution: End-to-end architecture, UI/UX engineering, data handling, API integration, and automated routing.";
+    }
+
+    const proof = p.fullStackProof || {};
+    if (this.archAuthEl) this.archAuthEl.textContent = proof.auth || "Client validation & protected route boundaries.";
+    if (this.archDbEl) this.archDbEl.textContent = proof.db || "Normalized state models with relational integrity.";
+    if (this.archApiEl) this.archApiEl.textContent = proof.api || "REST endpoints with payload validation & error handling.";
+    if (this.archDeployEl) this.archDeployEl.textContent = proof.performance || "Optimized asset pipeline with sub-second loads.";
+
+    const highlights = p.highlights || p.keyHighlights || [];
     if (this.highlightsEl) {
-      this.highlightsEl.innerHTML = p.keyHighlights
+      this.highlightsEl.innerHTML = highlights
         .map(h => `
           <li>
             <span class="drawer-bullet" aria-hidden="true"></span>
-            <span>${h}</span>
+            <span>${escapeHtml(h)}</span>
           </li>
         `).join("");
     }
 
+    const tags = p.tags || p.techStack || [];
     if (this.techEl) {
-      this.techEl.innerHTML = p.techStack
-        .map(t => `<span class="gallery-tag-chip">${t}</span>`)
+      this.techEl.innerHTML = tags
+        .map(t => `<span class="gallery-tag-chip">${escapeHtml(t)}</span>`)
         .join("");
     }
 
     if (this.launchBtn) {
-      this.launchBtn.href = p.liveUrl;
+      this.launchBtn.href = p.liveUrl || "#";
     }
 
     if (this.counterEl) {
@@ -476,4 +528,21 @@ function initSmoothScroll() {
         toggleMenu(false);
       }
     });
+  }
+
+  // Sticky Header Scroll Elevation Controller
+  function initStickyHeader() {
+    const header = document.querySelector(".site-header");
+    if (!header) return;
+
+    const onScroll = () => {
+      if (window.scrollY > 20) {
+        header.classList.add("is-scrolled");
+      } else {
+        header.classList.remove("is-scrolled");
+      }
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
   }

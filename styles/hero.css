@@ -66,11 +66,36 @@
   letter-spacing: -0.02em;
 }
 
+/* Hero Positioning Pitch & Tech Stack Subline */
+.hero-positioning-pitch {
+  font-family: var(--font-heading);
+  font-size: clamp(1.35rem, 2.6vw, 2.1rem);
+  font-weight: 700;
+  color: var(--text-white);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  max-width: 780px;
+  margin: 18px 0 12px;
+}
+
+.hero-stack-highlight {
+  font-family: var(--font-mono);
+  font-size: clamp(0.76rem, 1.3vw, 0.84rem);
+  color: var(--text-silver);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-subtle);
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  margin-bottom: 20px;
+  letter-spacing: -0.01em;
+}
+
 /* Sub-Description Paragraph on Left */
 .hero-statement-text {
-  font-size: clamp(1rem, 1.6vw, 1.15rem);
+  font-size: clamp(0.96rem, 1.5vw, 1.08rem);
   color: var(--text-muted);
-  max-width: 540px;
+  max-width: 620px;
   line-height: 1.6;
   margin-bottom: 32px;
 }
