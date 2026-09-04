@@ -84,6 +84,44 @@ const portfolioProjects = [
     roleTitle: "Full-Stack & CRM Developer"
   },
   {
+    id: "crowd-therapy",
+    title: "Crowd Therapy — Safe Space Circles",
+    subtitle: "Guided Conversation Circles & High-Intent Waitlist Platform",
+    category: "booking",
+    categoryLabel: "Community & Booking Portal",
+    badge: "Live Community Platform",
+    metricBadge: "High-Intent Waitlist Flow",
+    image: "assets/projects/crowd-therapy.png?v=6",
+    shortDesc: "Distraction-free community experience for guided conversation circles, engineered with intimate editorial storytelling, tea-session scheduling, and frictionless waitlist onboarding.",
+    liveUrl: "https://kumaruxie.github.io/crowdtherapy-2.0/",
+    
+    // Structured Case Study Breakdown
+    problemSolved: "Urban professionals facing digital fatigue and superficial networking struggled to find authentic, distraction-free third places. Traditional social apps created high anxiety and friction, leading to poor turnout for real-world guided gatherings.",
+    
+    whatBuilt: "A serene, psychology-anchored web experience featuring warm editorial visual rhythm, session mechanics walkthrough (tea served, phone-free zone, 15-seat caps), interactive FAQ modules, and a high-conversion waitlist capture pipeline.",
+    
+    role: "Lead Frontend & Experience Architect",
+    roleScope: "Engineered the responsive frontend architecture, typography hierarchy, interactive session breakdown, micro-animations, and frictionless waitlist capture pipeline.",
+    
+    fullStackDetails: {
+      authSecurity: "Client-side sanitization and honeypot validation on waitlist submissions mitigating spam without intrusive CAPTCHAs.",
+      databaseData: "Structured attendee intake collecting demographic interests, city preferences, and session expectations into an organized subscriber registry.",
+      apiValidation: "Real-time input validation with accessible feedback states and optimistic submission handling for instant confirmation.",
+      performanceDeployment: "Ultra-lean asset delivery hosted on GitHub Pages with sub-second First Contentful Paint and zero layout shift across mobile viewports."
+    },
+    
+    measurableResult: "Delivered a warm, high-trust digital front door that converts cold visitors into waitlist members, establishing instant emotional resonance and clear expectations for 15-seat intimate sessions.",
+    
+    keyHighlights: [
+      "Distraction-free editorial design language with warm, calming visual palette",
+      "Interactive 'How a Session Works' progressive disclosure module",
+      "Seamless waitlist capture optimized for mobile touchscreens",
+      "Zero layout shift (CLS < 0.01) with sub-second responsive page loads"
+    ],
+    techStack: ["HTML5", "Modern CSS", "JavaScript (ES6+)", "Responsive UX", "Waitlist Conversion", "GitHub Pages"],
+    roleTitle: "Lead Frontend & Experience Architect"
+  },
+  {
     id: "apkacoach-vsl",
     title: "Conflict to Clarity — ApkaCoach",
     subtitle: "30-Day Family Harmony High-Converting VSL Funnel",

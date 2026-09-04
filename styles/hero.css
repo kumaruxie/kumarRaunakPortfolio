@@ -476,95 +476,202 @@
 
 
 /* ==========================================================================
-   Mobile Responsive Overrides for Hero Section
+   Mobile Responsive Overrides for Hero Section (Spacious, Uncongested Layout)
    ========================================================================== */
 @media (max-width: 768px) {
   .hero-editorial-section {
-    padding: 40px 0 60px;
+    padding: 56px 0 80px;
   }
+
   .hero-giant-headline-wrap {
-    margin-bottom: 20px;
+    margin-bottom: 28px;
   }
+
   .hero-line-first {
     font-size: clamp(2.4rem, 11vw, 3.8rem);
+    line-height: 1.08;
     letter-spacing: -0.03em;
     word-break: break-word;
   }
+
   .hero-line-second-row {
     justify-content: flex-start;
     align-items: center;
-    gap: 12px;
-    margin-top: 4px;
+    gap: 16px;
+    margin-top: 14px;
     flex-wrap: wrap;
   }
+
   .hero-btn-pill-projects {
-    padding: 8px 20px;
-    font-size: 0.82rem;
-    gap: 6px;
+    padding: 10px 22px;
+    font-size: 0.86rem;
+    gap: 8px;
   }
+
   .hero-line-second {
     font-size: clamp(2.4rem, 11vw, 3.8rem);
+    line-height: 1.08;
     word-break: break-word;
   }
-  .hero-statement-text {
-    font-size: 0.95rem;
-    line-height: 1.55;
-    margin-bottom: 24px;
+
+  .hero-positioning-pitch {
+    font-size: clamp(1.22rem, 4.5vw, 1.45rem);
+    line-height: 1.48;
+    margin: 24px 0 18px;
+    max-width: 100%;
   }
-  .hero-social-pills-row {
-    gap: 8px;
-    margin-bottom: 36px;
-  }
-  .social-pill-item {
-    padding: 7px 14px;
+
+  .hero-stack-highlight {
+    display: inline-block;
+    padding: 10px 18px;
+    line-height: 1.65;
+    border-radius: var(--radius-md);
+    margin-bottom: 26px;
     font-size: 0.78rem;
     max-width: 100%;
   }
+
+  .hero-statement-text {
+    font-size: 0.96rem;
+    line-height: 1.72;
+    margin-bottom: 36px;
+  }
+
+  .hero-social-pills-row {
+    gap: 12px;
+    margin-bottom: 52px;
+  }
+
+  .social-pill-item {
+    padding: 10px 18px;
+    font-size: 0.82rem;
+    max-width: 100%;
+  }
+
   .social-pill-item span {
-    max-width: 180px;
+    max-width: 220px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
+
   .spotlight-carousel-stage {
     padding: 0 4px;
+    margin-top: 24px;
   }
+
   .spotlight-card-active {
     grid-template-columns: 1fr;
-    padding: 16px;
-    gap: 16px;
+    padding: 24px 20px;
+    gap: 22px;
+    border-radius: var(--radius-lg);
+  }
+
+  .spotlight-media-frame {
+    aspect-ratio: 16 / 10;
     border-radius: var(--radius-md);
   }
+
+  .spotlight-info-group {
+    gap: 14px;
+  }
+
   .spotlight-card-title {
-    font-size: 1.15rem;
+    font-size: 1.25rem;
+    line-height: 1.35;
   }
+
   .spotlight-card-desc {
-    font-size: 0.82rem;
-    line-height: 1.5;
+    font-size: 0.88rem;
+    line-height: 1.62;
   }
+
+  .spotlight-btn-row {
+    margin-top: 6px;
+    gap: 14px;
+  }
+
+  .btn-spotlight-readmore {
+    padding: 11px 22px;
+    font-size: 0.85rem;
+  }
+
+  .btn-spotlight-visitlive {
+    width: 42px;
+    height: 42px;
+  }
+
   .spotlight-nav-btn {
     display: none !important;
-    width: 36px;
-    height: 36px;
-    background: rgba(15, 17, 24, 0.92);
-  }
-  .spotlight-nav-prev {
-    left: 4px;
-    top: 24%;
-  }
-  .spotlight-nav-next {
-    right: 4px;
-    top: 24%;
   }
 }
 
 @media (max-width: 480px) {
+  .hero-editorial-section {
+    padding: 48px 0 68px;
+  }
+
+  .hero-giant-headline-wrap {
+    margin-bottom: 24px;
+  }
+
   .hero-line-first,
   .hero-line-second {
-    font-size: clamp(2.1rem, 10vw, 2.7rem);
+    font-size: clamp(2.2rem, 10.5vw, 2.9rem);
+    line-height: 1.1;
   }
+
+  .hero-line-second-row {
+    gap: 12px;
+    margin-top: 12px;
+  }
+
   .hero-btn-pill-projects {
-    padding: 6px 14px;
-    font-size: 0.76rem;
+    padding: 8px 18px;
+    font-size: 0.8rem;
+  }
+
+  .hero-positioning-pitch {
+    font-size: 1.18rem;
+    line-height: 1.45;
+    margin: 20px 0 16px;
+  }
+
+  .hero-stack-highlight {
+    padding: 9px 14px;
+    font-size: 0.74rem;
+    line-height: 1.6;
+    margin-bottom: 22px;
+  }
+
+  .hero-statement-text {
+    font-size: 0.92rem;
+    line-height: 1.68;
+    margin-bottom: 30px;
+  }
+
+  .hero-social-pills-row {
+    gap: 10px;
+    margin-bottom: 42px;
+  }
+
+  .social-pill-item {
+    padding: 8px 16px;
+    font-size: 0.78rem;
+  }
+
+  .spotlight-card-active {
+    padding: 20px 16px;
+    gap: 18px;
+    border-radius: var(--radius-md);
+  }
+
+  .spotlight-card-title {
+    font-size: 1.18rem;
+  }
+
+  .spotlight-card-desc {
+    font-size: 0.84rem;
+    line-height: 1.58;
   }
 }
