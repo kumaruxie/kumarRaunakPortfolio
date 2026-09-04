@@ -55,16 +55,19 @@
         console.warn("Google form background dispatch note:", err);
       }
 
-      // 2. Open WhatsApp direct chat
-      const waText = `Hi Kumar! I submitted a project brief on your portfolio:%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Email:* ${encodeURIComponent(email)}%0A*Phone:* ${encodeURIComponent(phone || "Not provided")}%0A*Requirement:* ${encodeURIComponent(projectType)}%0A*Brief:* ${encodeURIComponent(message)}`;
+      // Success State: No WhatsApp redirect
+      submitBtn.innerHTML = "<span>✓ Sent! I'll connect with you shortly</span>";
+      submitBtn.style.background = "#10b981";
+      submitBtn.style.color = "#ffffff";
+      form.reset();
+      showToast("Sent! I'll connect with you shortly.", "success");
 
       setTimeout(() => {
         submitBtn.disabled = false;
         submitBtn.innerHTML = originalBtnHtml;
-        window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${waText}`, "_blank");
-        form.reset();
-        showToast("Project brief recorded! Opening WhatsApp conversation...", "success");
-      }, 500);
+        submitBtn.style.background = "";
+        submitBtn.style.color = "";
+      }, 4000);
     });
   }
 
