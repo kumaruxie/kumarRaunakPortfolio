@@ -131,7 +131,7 @@ const portfolioProjects = [
     metricBadge: "1,500+ Enrolled & <2s Lead Sync",
     image: "assets/projects/apkacoach-vsl-funnel.jpg?v=6",
     shortDesc: "High-converting Video Sales Letter (VSL) landing ecosystem for Jagat Turkiya (15-Year Family Care Expert), engineered for emotional authority, frictionless callback capture, and zero-latency webhook routing.",
-    liveUrl: "https://lp.apkacoach.com",
+    liveUrl: "https://www.lp.apkacoach.com/",
     
     // Structured Case Study Breakdown
     problemSolved: "High-ticket coaching funnels suffer from 65%+ bounce rates when video buffering delays engagement, trust signals are buried, or emotional skepticism is left unaddressed before asking for consultation bookings.",

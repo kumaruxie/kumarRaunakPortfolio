@@ -480,16 +480,16 @@
    ========================================================================== */
 @media (max-width: 768px) {
   .hero-editorial-section {
-    padding: 56px 0 80px;
+    padding: 68px 0 110px;
   }
 
   .hero-giant-headline-wrap {
-    margin-bottom: 28px;
+    margin-bottom: 38px;
   }
 
   .hero-line-first {
     font-size: clamp(2.4rem, 11vw, 3.8rem);
-    line-height: 1.08;
+    line-height: 1.1;
     letter-spacing: -0.03em;
     word-break: break-word;
   }
@@ -498,7 +498,7 @@
     justify-content: flex-start;
     align-items: center;
     gap: 16px;
-    margin-top: 14px;
+    margin-top: 16px;
     flex-wrap: wrap;
   }
 
@@ -510,14 +510,14 @@
 
   .hero-line-second {
     font-size: clamp(2.4rem, 11vw, 3.8rem);
-    line-height: 1.08;
+    line-height: 1.1;
     word-break: break-word;
   }
 
   .hero-positioning-pitch {
     font-size: clamp(1.22rem, 4.5vw, 1.45rem);
-    line-height: 1.48;
-    margin: 24px 0 18px;
+    line-height: 1.5;
+    margin: 0 0 22px;
     max-width: 100%;
   }
 
@@ -526,20 +526,20 @@
     padding: 10px 18px;
     line-height: 1.65;
     border-radius: var(--radius-md);
-    margin-bottom: 26px;
+    margin-bottom: 28px;
     font-size: 0.78rem;
     max-width: 100%;
   }
 
   .hero-statement-text {
     font-size: 0.96rem;
-    line-height: 1.72;
-    margin-bottom: 36px;
+    line-height: 1.75;
+    margin-bottom: 44px;
   }
 
   .hero-social-pills-row {
     gap: 12px;
-    margin-bottom: 52px;
+    margin-bottom: 64px;
   }
 
   .social-pill-item {
@@ -557,7 +557,7 @@
 
   .spotlight-carousel-stage {
     padding: 0 4px;
-    margin-top: 24px;
+    margin-top: 32px;
   }
 
   .spotlight-card-active {
@@ -608,22 +608,22 @@
 
 @media (max-width: 480px) {
   .hero-editorial-section {
-    padding: 48px 0 68px;
+    padding: 58px 0 100px;
   }
 
   .hero-giant-headline-wrap {
-    margin-bottom: 24px;
+    margin-bottom: 34px;
   }
 
   .hero-line-first,
   .hero-line-second {
     font-size: clamp(2.2rem, 10.5vw, 2.9rem);
-    line-height: 1.1;
+    line-height: 1.12;
   }
 
   .hero-line-second-row {
     gap: 12px;
-    margin-top: 12px;
+    margin-top: 14px;
   }
 
   .hero-btn-pill-projects {
@@ -633,31 +633,35 @@
 
   .hero-positioning-pitch {
     font-size: 1.18rem;
-    line-height: 1.45;
-    margin: 20px 0 16px;
+    line-height: 1.48;
+    margin: 0 0 20px;
   }
 
   .hero-stack-highlight {
     padding: 9px 14px;
     font-size: 0.74rem;
-    line-height: 1.6;
-    margin-bottom: 22px;
+    line-height: 1.65;
+    margin-bottom: 24px;
   }
 
   .hero-statement-text {
     font-size: 0.92rem;
-    line-height: 1.68;
-    margin-bottom: 30px;
+    line-height: 1.72;
+    margin-bottom: 38px;
   }
 
   .hero-social-pills-row {
     gap: 10px;
-    margin-bottom: 42px;
+    margin-bottom: 56px;
   }
 
   .social-pill-item {
     padding: 8px 16px;
     font-size: 0.78rem;
+  }
+
+  .spotlight-carousel-stage {
+    margin-top: 28px;
   }
 
   .spotlight-card-active {
