@@ -36,7 +36,18 @@
       const originalBtnHtml = submitBtn.innerHTML;
       submitBtn.disabled = true;
       submitBtn.classList.add("is-sending");
-      submitBtn.innerHTML = '<span class="btn-spinner"></span><span>Sending message...</span>';
+      submitBtn.innerHTML = `
+        <div class="send-anim-track">
+          <div class="anim-rocket-glide">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+              <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"></path>
+            </svg>
+            <div class="anim-jet-trail"></div>
+          </div>
+          <span class="anim-label-text">Dispatching Brief...</span>
+          <div class="anim-progress-beam"></div>
+        </div>
+      `;
 
       // 1. Submit directly to Google Forms in background
       const postPromise = (async () => {
@@ -58,12 +69,12 @@
         }
       })();
 
-      // 2. Play sending animation for ~1.4s then show Sent confirmation
-      const minAnimationDelay = new Promise(resolve => setTimeout(resolve, 1400));
+      // 2. Play moving launch animation for 1550ms then trigger Sent state
+      const minAnimationDelay = new Promise(resolve => setTimeout(resolve, 1550));
 
       await Promise.all([postPromise, minAnimationDelay]);
 
-      // Success State once animation finishes
+      // Success State once moving animation completes
       submitBtn.classList.remove("is-sending");
       submitBtn.classList.add("is-sent");
       submitBtn.innerHTML = "<span>✓ Sent! I'll connect with you shortly</span>";
