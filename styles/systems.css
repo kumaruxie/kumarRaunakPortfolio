@@ -1,0 +1,149 @@
+/* ==========================================================================
+   Kumar Raunak - About Me & Skills Bento Section
+   Matches Behance Reference Layout (Nikita Khvatov Portfolio)
+   ========================================================================== */
+
+.about-bento-section {
+  padding: 90px 0 100px;
+  position: relative;
+  z-index: 2;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.about-editorial-lead {
+  margin-bottom: 48px;
+}
+
+.about-prefix-meta {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
+}
+
+.about-headline-lead {
+  font-family: var(--font-heading);
+  font-size: clamp(1.6rem, 3vw, 2.3rem);
+  font-weight: 600;
+  color: var(--text-white);
+  line-height: 1.35;
+  max-width: 780px;
+}
+
+.about-headline-lead em {
+  font-style: italic;
+  font-family: var(--font-serif);
+  color: #ffffff;
+}
+
+/* Two Columns Bento Layout (From Behance) */
+.about-bento-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 40px;
+  align-items: center;
+}
+
+/* Left: Rounded Tech Stack Pill Blocks */
+.skills-pill-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.skill-bento-block {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: all var(--transition-fast);
+  position: relative;
+}
+
+.skill-bento-block:hover {
+  border-color: var(--border-hover);
+  background: var(--bg-card-hover);
+  transform: translateX(4px);
+}
+
+.skill-block-label {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-white);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.skill-block-items {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* Split row for Styles & circular badge */
+.skill-block-split {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: center;
+}
+
+.skill-accent-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  box-shadow: 0 5px 20px rgba(255, 255, 255, 0.2);
+  transition: transform var(--transition-fast);
+}
+
+.skill-bento-block:hover .skill-accent-circle {
+  transform: rotate(45deg);
+}
+
+/* Right: B&W Developer Portrait (Behance Minimalist Dark Theme) */
+.about-portrait-card {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background: #0f1118;
+  border: 1px solid var(--border-card);
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.9);
+  margin: 0 auto;
+}
+
+.about-portrait-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  filter: grayscale(100%) contrast(125%) brightness(0.95);
+  transition: filter var(--transition-smooth), transform var(--transition-smooth);
+}
+
+.about-portrait-card:hover img {
+  filter: grayscale(0%) contrast(105%);
+  transform: scale(1.02);
+}
+
+
+
+@media (max-width: 960px) {
+  .about-bento-grid {
+    grid-template-columns: 1fr;
+  }
+}

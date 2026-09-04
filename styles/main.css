@@ -1,0 +1,269 @@
+/* ==========================================================================
+   Kumar Raunak - Minimalist Dark Editorial Design System
+   Inspired by Behance Reference (Nikita Khvatov Portfolio Style)
+   ========================================================================== */
+
+:root {
+  /* Color Palette */
+  --bg-primary: #0a0b0e;
+  --bg-secondary: #101217;
+  --bg-card: #14171f;
+  --bg-card-hover: #1c202b;
+  --bg-pill: rgba(255, 255, 255, 0.05);
+
+  /* Accents */
+  --text-white: #ffffff;
+  --text-silver: #d1d5db;
+  --text-muted: #8b949e;
+  --text-dim: #4b5563;
+
+  --accent-white: #ffffff;
+  --accent-cyan: #38bdf8;
+  --accent-glow: rgba(56, 189, 248, 0.15);
+
+  /* Borders */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-card: rgba(255, 255, 255, 0.12);
+  --border-hover: rgba(255, 255, 255, 0.35);
+
+  /* Typography */
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Layout */
+  --max-width: 1180px;
+  --nav-height: 80px;
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 36px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --ease-cinematic: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: 0.2s var(--ease-cinematic);
+  --transition-smooth: 0.35s var(--ease-cinematic);
+}
+
+/* Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+  background-color: var(--bg-primary);
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-silver);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+}
+
+::selection {
+  background: #ffffff;
+  color: #000000;
+}
+
+/* Subtle Geometric Wireframe Circles (From Behance Reference) */
+.bg-wireframe-lines {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.wireframe-circle {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.035);
+  pointer-events: none;
+}
+
+.wireframe-circle-1 {
+  width: 900px;
+  height: 900px;
+  top: -200px;
+  right: -250px;
+}
+
+.wireframe-circle-2 {
+  width: 750px;
+  height: 750px;
+  bottom: 10%;
+  left: -200px;
+}
+
+/* Outer Mockup Framing Border (Matches Behance Screen Layout) */
+.page-wrapper-frame {
+  max-width: 1240px;
+  margin: 20px auto;
+  background: var(--bg-primary);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.85);
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 1280px) {
+  .page-wrapper-frame {
+    margin: 0;
+    border-radius: 0;
+    border: none;
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 36px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Header & Nav */
+.site-header {
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  padding: 0 40px;
+  border-bottom: 1px solid var(--border-subtle);
+  background: rgba(10, 11, 14, 0.8);
+  backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.nav-brand-title {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-white);
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.nav-brand-sub {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.nav-links-menu {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-links-menu a {
+  text-decoration: none;
+  color: var(--text-muted);
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition: color var(--transition-fast);
+}
+
+.nav-links-menu a:hover,
+.nav-links-menu a.active {
+  color: var(--text-white);
+}
+
+.nav-pill-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 18px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-white);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all var(--transition-fast);
+}
+
+.nav-pill-action:hover {
+  background: #ffffff;
+  color: #000000;
+}
+
+/* Shared Section Header */
+.section-meta-tag {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.section-hero-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--text-white);
+  line-height: 1.15;
+}
+
+/* Footer */
+.site-footer {
+  padding: 60px 40px 40px;
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-copy {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+}
+
+@media (max-width: 768px) {
+  .nav-links-menu {
+    display: none;
+  }
+}

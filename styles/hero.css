@@ -1,0 +1,450 @@
+/* ==========================================================================
+   Kumar Raunak - Behance Editorial Hero & Spotlight Carousel
+   Matches Reference (Nikita Khvatov Portfolio Layout)
+   ========================================================================== */
+
+.hero-editorial-section {
+  padding: 60px 0 80px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Giant Headline Layout (From Behance) */
+.hero-giant-headline-wrap {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+}
+
+.hero-line-first {
+  font-family: var(--font-heading);
+  font-size: clamp(3.2rem, 8.5vw, 6.8rem);
+  font-weight: 800;
+  color: var(--text-white);
+  line-height: 1.0;
+  letter-spacing: -0.04em;
+  text-transform: none;
+}
+
+.hero-line-second-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-top: -10px;
+}
+
+.hero-btn-pill-projects {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 30px;
+  border-radius: var(--radius-full);
+  background: #ffffff;
+  color: #000000;
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  transition: transform var(--transition-fast), background var(--transition-fast);
+}
+
+.hero-btn-pill-projects:hover {
+  background: #e2e8f0;
+  transform: translateY(-2px);
+}
+
+.hero-line-second {
+  font-family: var(--font-serif);
+  font-size: clamp(3.2rem, 8.5vw, 6.8rem);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--text-white);
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+}
+
+/* Sub-Description Paragraph on Left */
+.hero-statement-text {
+  font-size: clamp(1rem, 1.6vw, 1.15rem);
+  color: var(--text-muted);
+  max-width: 540px;
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+.hero-statement-text strong {
+  color: var(--text-white);
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* Social Media Capsule Pill Links (From Behance) */
+.hero-social-pills-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 60px;
+}
+
+.social-pill-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-card);
+  color: var(--text-silver);
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.social-pill-item:hover {
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+}
+
+/* ==========================================================================
+   Featured Spotlight Carousel (Centerpiece of the Behance Hero)
+   ========================================================================== */
+.spotlight-carousel-stage {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.spotlight-track {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 24px;
+}
+
+/* Active Center Card */
+.spotlight-card-active {
+  width: 100%;
+  max-width: 680px;
+  background: #141720;
+  border: 1px solid var(--border-hover);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 24px;
+  align-items: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+  position: relative;
+  z-index: 5;
+  transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1), transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+  will-change: opacity, transform;
+}
+
+.spotlight-card-active.spotlight-animating-out {
+  opacity: 0;
+  transform: scale(0.96) translateX(var(--slide-exit-x, -26px));
+}
+
+.spotlight-card-active.spotlight-animating-in {
+  opacity: 0;
+  transform: scale(0.96) translateX(var(--slide-enter-x, 26px));
+  transition: none !important;
+}
+
+.spotlight-card-peek {
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.spotlight-card-peek.peek-fade {
+  opacity: 0;
+  transform: translateY(4px);
+}
+
+.spotlight-media-frame {
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: #000;
+  border: 1px solid var(--border-subtle);
+}
+
+.spotlight-media-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform var(--transition-smooth);
+}
+
+.spotlight-card-active:hover .spotlight-media-frame img {
+  transform: scale(1.04);
+}
+
+.spotlight-info-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.spotlight-tag-mini {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent-cyan);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.spotlight-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-white);
+  line-height: 1.25;
+}
+
+.spotlight-card-desc {
+  font-size: 0.86rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+.spotlight-btn-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.btn-spotlight-readmore {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 20px;
+  border-radius: var(--radius-full);
+  background: #ffffff;
+  color: #000000;
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.btn-spotlight-readmore:hover {
+  background: #e2e8f0;
+  transform: translateY(-2px);
+}
+
+.btn-spotlight-visitlive {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border-card);
+  color: var(--text-white);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.btn-spotlight-visitlive:hover {
+  background: #ffffff;
+  color: #000000;
+}
+
+/* Side Dimmed Peeking Cards (From Behance) */
+.spotlight-card-peek {
+  width: 220px;
+  background: #0f1118;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  opacity: 0.35;
+  filter: blur(1px);
+  cursor: pointer;
+  transition: opacity var(--transition-fast);
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .spotlight-card-peek {
+    display: block;
+  }
+}
+
+.spotlight-card-peek:hover {
+  opacity: 0.6;
+}
+
+.spotlight-peek-title {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-white);
+  margin-bottom: 6px;
+}
+
+.spotlight-peek-desc {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* Circular Arrow Navigation Buttons (From Behance) */
+.spotlight-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(20, 23, 32, 0.85);
+  border: 1px solid var(--border-card);
+  backdrop-filter: blur(8px);
+  color: var(--text-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all var(--transition-fast);
+}
+
+.spotlight-nav-btn:hover {
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+}
+
+.spotlight-nav-prev {
+  left: 10px;
+}
+
+.spotlight-nav-next {
+  right: 10px;
+}
+
+@media (max-width: 768px) {
+  .hero-line-second-row {
+    justify-content: flex-start;
+  }
+  .spotlight-card-active {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Executive Developer Intro Badge Above Hero */
+.hero-dev-intro-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 18px 6px 8px;
+  background: rgba(20, 24, 32, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(245, 166, 35, 0.3);
+  border-radius: 100px;
+  margin-bottom: 28px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5), 0 0 25px rgba(245, 166, 35, 0.12);
+  transition: border-color var(--transition-smooth), transform var(--transition-smooth);
+}
+
+.hero-dev-intro-badge:hover {
+  border-color: rgba(245, 166, 35, 0.6);
+  transform: translateY(-2px);
+}
+
+.dev-intro-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--color-accent);
+  box-shadow: 0 0 16px rgba(245, 166, 35, 0.5);
+  flex-shrink: 0;
+}
+
+.dev-intro-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+.dev-intro-info {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  line-height: 1.25;
+}
+
+.dev-intro-name {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-white);
+  letter-spacing: -0.01em;
+}
+
+.dev-intro-role {
+  font-family: var(--font-mono);
+  font-size: 0.70rem;
+  color: var(--color-accent);
+  letter-spacing: 0.03em;
+}
+
+.dev-intro-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #4ade80;
+  background: rgba(74, 222, 128, 0.12);
+  padding: 5px 12px;
+  border-radius: 50px;
+  border: 1px solid rgba(74, 222, 128, 0.3);
+  margin-left: 10px;
+}
+
+.status-pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 10px #4ade80;
+  animation: pulseDot 2s infinite ease-in-out;
+}
+
+@media (max-width: 680px) {
+  .hero-dev-intro-badge {
+    flex-wrap: wrap;
+    border-radius: 20px;
+    padding: 10px 14px;
+  }
+  .dev-intro-status {
+    margin-left: 0;
+    margin-top: 4px;
+    width: 100%;
+    justify-content: center;
+  }
+}
