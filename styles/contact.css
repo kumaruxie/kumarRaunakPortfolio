@@ -229,3 +229,61 @@
     grid-template-columns: 1fr;
   }
 }
+
+
+/* ==========================================================================
+   Mobile Responsive Overrides for Contact Section
+   ========================================================================== */
+@media (max-width: 768px) {
+  .contact-editorial-section {
+    padding: 60px 0 80px;
+  }
+  .contact-editorial-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .contact-meta-card,
+  .contact-form-card {
+    padding: 22px 18px;
+    border-radius: var(--radius-md);
+  }
+  .contact-meta-title,
+  .form-title-lead {
+    font-size: 1.2rem;
+  }
+  .contact-meta-desc,
+  .form-sub-lead {
+    font-size: 0.84rem;
+  }
+  .channel-pill-row {
+    padding: 12px 14px;
+  }
+  .channel-pill-left {
+    gap: 10px;
+    min-width: 0;
+  }
+  .channel-pill-text {
+    min-width: 0;
+  }
+  .channel-pill-text h5 {
+    font-size: 0.84rem;
+    word-break: break-all;
+  }
+  .channel-pill-text span {
+    font-size: 0.72rem;
+  }
+  .form-double-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .form-input-field,
+  .form-select-field,
+  .form-textarea-field {
+    padding: 10px 14px;
+    font-size: 0.88rem;
+  }
+  .btn-send-brief {
+    padding: 12px 20px;
+    font-size: 0.82rem;
+  }
+}

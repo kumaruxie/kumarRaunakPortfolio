@@ -15,11 +15,11 @@
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Stylesheets (Behance Minimalist Dark Theme) -->
-  <link rel="stylesheet" href="styles/main.css?v=9">
-  <link rel="stylesheet" href="styles/hero.css?v=9">
-  <link rel="stylesheet" href="styles/systems.css?v=9">
-  <link rel="stylesheet" href="styles/projects.css?v=9">
-  <link rel="stylesheet" href="styles/contact.css?v=9">
+  <link rel="stylesheet" href="styles/main.css?v=11">
+  <link rel="stylesheet" href="styles/hero.css?v=11">
+  <link rel="stylesheet" href="styles/systems.css?v=11">
+  <link rel="stylesheet" href="styles/projects.css?v=11">
+  <link rel="stylesheet" href="styles/contact.css?v=11">
 </head>
 <body>
 
@@ -37,7 +37,7 @@
          ========================================================================== -->
     <header class="site-header">
       <div class="nav-inner">
-                <a href="#" class="nav-brand-title">
+        <a href="#" class="nav-brand-title">
           <span>Kumar</span>
           <span class="nav-brand-sub">Raunak</span>
         </a>
@@ -52,6 +52,29 @@
         <a href="#contact" class="nav-pill-action">
           <span>Available for Hire</span>
         </a>
+
+        <!-- Mobile Hamburger 3-Bars Button -->
+        <button class="nav-hamburger-btn" id="nav-hamburger-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+
+      <!-- Mobile Dropdown Navigation Menu -->
+      <div class="mobile-nav-dropdown" id="mobile-nav-dropdown" aria-hidden="true">
+        <nav class="mobile-nav-links">
+          <a href="#about" class="mobile-nav-item">About</a>
+          <a href="#projects" class="mobile-nav-item">Projects</a>
+          <a href="#work" class="mobile-nav-item">Work</a>
+          <a href="#contact" class="mobile-nav-item">Contact</a>
+        </nav>
+        <div class="mobile-nav-footer">
+          <a href="#contact" class="mobile-hire-cta">
+            <span class="status-pulse-dot"></span>
+            <span>Available for Hire</span>
+          </a>
+        </div>
       </div>
     </header>
 
@@ -123,17 +146,17 @@
             <div class="spotlight-track">
               <!-- Left Peeking Card -->
               <div id="spotlight-peek-prev" class="spotlight-card-peek">
-                <!-- Injected via app.js?v=9 -->
+                <!-- Injected via app.js?v=11 -->
               </div>
 
               <!-- Center Active Card -->
               <div id="spotlight-active-card" class="spotlight-card-active">
-                <!-- Injected via app.js?v=9 -->
+                <!-- Injected via app.js?v=11 -->
               </div>
 
               <!-- Right Peeking Card -->
               <div id="spotlight-peek-next" class="spotlight-card-peek">
-                <!-- Injected via app.js?v=9 -->
+                <!-- Injected via app.js?v=11 -->
               </div>
             </div>
 
@@ -232,35 +255,30 @@
           <div class="work-table-container">
             
             <div class="work-table-row" data-link-project="apkacoach-vsl">
-              <div class="work-row-date">2024 - Present</div>
               <div class="work-row-company">ApkaCoach Ecosystem</div>
               <div class="work-row-role">Lead Funnel &amp; Full-Stack Architect | React &amp; Conversion CRO</div>
               <div class="work-row-arrow">↗</div>
             </div>
 
             <div class="work-table-row" data-link-project="financial-fitness-app">
-              <div class="work-row-date">2024 - 2024</div>
-              <div class="work-row-company">Finance Fitness SaaS</div>
+              <div class="work-row-company">Finance Fitness SaaS (FinFit)</div>
               <div class="work-row-role">Full-Stack Web Developer | Compounding Algorithms &amp; Onboarding</div>
               <div class="work-row-arrow">↗</div>
             </div>
 
             <div class="work-table-row" data-link-project="financial-fitness-admin">
-              <div class="work-row-date">2024 - 2024</div>
               <div class="work-row-company">Wealth Advisor CRM</div>
               <div class="work-row-role">CRM Developer | Back-Office Lead Sync &amp; Advisor Analytics</div>
               <div class="work-row-arrow">↗</div>
             </div>
 
             <div class="work-table-row" data-link-project="aura-qc-analytics">
-              <div class="work-row-date">2023 - 2024</div>
               <div class="work-row-company">AURA Analytics Lab</div>
               <div class="work-row-role">Full-Stack Engineer | React, TypeScript &amp; Quality Control Analytics</div>
               <div class="work-row-arrow">↗</div>
             </div>
 
             <div class="work-table-row" data-link-project="financial-services-corp">
-              <div class="work-row-date">2023 - 2023</div>
               <div class="work-row-company">Corporate Tax Services</div>
               <div class="work-row-role">Web Developer | Compliance Portals &amp; WhatsApp Lead Routing</div>
               <div class="work-row-arrow">↗</div>
@@ -291,7 +309,7 @@
 
           <!-- Gallery Grid -->
           <div id="projects-gallery-grid" class="projects-gallery-grid">
-            <!-- Dynamically populated via js/app.js?v=9 -->
+            <!-- Dynamically populated via js/app.js?v=11 -->
           </div>
 
         </div>
@@ -464,7 +482,7 @@
           <div class="drawer-section-block">
             <span class="drawer-block-title">Key Implementation Highlights</span>
             <ul id="drawer-highlights" class="drawer-highlights-list">
-              <!-- Injected via app.js?v=9 -->
+              <!-- Injected via app.js?v=11 -->
             </ul>
           </div>
 
@@ -472,7 +490,7 @@
           <div class="drawer-section-block">
             <span class="drawer-block-title">Technologies Applied</span>
             <div id="drawer-tech-tags" class="drawer-tech-wrap">
-              <!-- Injected via app.js?v=9 -->
+              <!-- Injected via app.js?v=11 -->
             </div>
           </div>
         </div>
@@ -513,8 +531,8 @@
   </div><!-- /page-wrapper-frame -->
 
   <!-- Scripts -->
-  <script src="js/projects-data.js?v=9"></script>
-  <script src="js/contact-form.js?v=9"></script>
-  <script src="js/app.js?v=9"></script>
+  <script src="js/projects-data.js?v=11"></script>
+  <script src="js/contact-form.js?v=11"></script>
+  <script src="js/app.js?v=11"></script>
 </body>
 </html>
