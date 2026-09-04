@@ -211,6 +211,41 @@
   transform: translateY(-2px);
 }
 
+.btn-send-brief.is-sending {
+  background: rgba(255, 255, 255, 0.85);
+  color: #0c0e14;
+  cursor: wait;
+  transform: none;
+}
+
+.btn-send-brief.is-sent {
+  background: #10b981 !important;
+  color: #ffffff !important;
+  cursor: default;
+  transform: none;
+  animation: sendSuccessPop 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes sendSuccessPop {
+  0% { transform: scale(0.96); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+.btn-spinner {
+  width: 15px;
+  height: 15px;
+  border: 2.5px solid rgba(0, 0, 0, 0.2);
+  border-top-color: #000000;
+  border-radius: 50%;
+  animation: btnSpin 0.65s linear infinite;
+  display: inline-block;
+}
+
+@keyframes btnSpin {
+  to { transform: rotate(360deg); }
+}
+
 .form-disclaimer-text {
   font-size: 0.78rem;
   color: var(--text-dim);

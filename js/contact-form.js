@@ -35,39 +35,46 @@
 
       const originalBtnHtml = submitBtn.innerHTML;
       submitBtn.disabled = true;
-      submitBtn.innerHTML = "<span>Submitting Brief...</span>";
+      submitBtn.classList.add("is-sending");
+      submitBtn.innerHTML = '<span class="btn-spinner"></span><span>Sending message...</span>';
 
       // 1. Submit directly to Google Forms in background
-      try {
-        const formData = new FormData();
-        formData.append("entry.635009175", name);
-        formData.append("entry.1333921202", email);
-        formData.append("entry.649512176", phone || "Not provided");
-        formData.append("entry.1632950299", projectType);
-        formData.append("entry.58245395", message);
+      const postPromise = (async () => {
+        try {
+          const formData = new FormData();
+          formData.append("entry.635009175", name);
+          formData.append("entry.1333921202", email);
+          formData.append("entry.649512176", phone || "Not provided");
+          formData.append("entry.1632950299", projectType);
+          formData.append("entry.58245395", message);
 
-        await fetch(GOOGLE_FORM_URL, {
-          method: "POST",
-          mode: "no-cors",
-          body: formData
-        });
-      } catch (err) {
-        console.warn("Google form background dispatch note:", err);
-      }
+          await fetch(GOOGLE_FORM_URL, {
+            method: "POST",
+            mode: "no-cors",
+            body: formData
+          });
+        } catch (err) {
+          console.warn("Google form background dispatch note:", err);
+        }
+      })();
 
-      // Success State: No WhatsApp redirect
+      // 2. Play sending animation for ~1.4s then show Sent confirmation
+      const minAnimationDelay = new Promise(resolve => setTimeout(resolve, 1400));
+
+      await Promise.all([postPromise, minAnimationDelay]);
+
+      // Success State once animation finishes
+      submitBtn.classList.remove("is-sending");
+      submitBtn.classList.add("is-sent");
       submitBtn.innerHTML = "<span>✓ Sent! I'll connect with you shortly</span>";
-      submitBtn.style.background = "#10b981";
-      submitBtn.style.color = "#ffffff";
       form.reset();
       showToast("Sent! I'll connect with you shortly.", "success");
 
       setTimeout(() => {
+        submitBtn.classList.remove("is-sent");
         submitBtn.disabled = false;
         submitBtn.innerHTML = originalBtnHtml;
-        submitBtn.style.background = "";
-        submitBtn.style.color = "";
-      }, 4000);
+      }, 4500);
     });
   }
 
